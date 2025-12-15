@@ -1,0 +1,12 @@
+{
+  "gtf_sets": [
+    {
+      "id": "1",
+      "gtf_configs": [
+        { "gtf_file": "/home/kariyayama/CellIO/Reference/gencode.v49/gencode.v49.primary_assembly.annotation.gtf", "species": "Human", "taxid": "9606" },
+        { "gtf_file": "/home/kariyayama/CellIO/Reference/GRCm39/gencode.vM38.primary_assembly.annotation.gtf", "species": "Mouse", "taxid": "10090" },
+        { "gtf_file": "/home/kariyayama/CellIO/Reference/GRCr8/Rattus_norvegicus.GRCr8.115.chr.gtf", "species": "Rat", "taxid": "10116" }
+      ]
+    }
+  ]
+}

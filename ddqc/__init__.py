@@ -1,1 +1,1 @@
-from .ddqc import ddqc_metrics
+from .ddqc import ddqc_metrics, ddqc_scanpy
