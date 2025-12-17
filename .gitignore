@@ -7,7 +7,7 @@ output
 old_code
 *.Rproj
 *.html
-__pycache__
+Python/__pycache__/
 .ipynb_checkpoints/
 config/local_config.py
 *.h5ad
