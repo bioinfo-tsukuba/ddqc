@@ -21,7 +21,7 @@ def ddqc_scanpy(adata,
                 threshold_ribo: Union[float, None] = 0,
                 mito_prefix: str = "MT-", 
                 ribo_prefix: str = "^RP[SL][[:digit:]]|^RPLP[[:digit:]]|^RPSA",
-                n_genes_lower_bound: int = 200, 
+                n_genes_lower_bound: int = 0, 
                 percent_mito_upper_bound: float = 10.0,
                 return_df_qc: bool = False, 
                 display_plots: bool = True):
@@ -37,7 +37,7 @@ def ddqc_scanpy(adata,
             specific thresholds for each metric (default: 0 = use method threshold, None = skip)
         mito_prefix (str): gene prefix for mitochondrial genes (default: "MT-")
         ribo_prefix (str): regex pattern for ribosomal genes
-        n_genes_lower_bound (int): lower bound for n_genes cluster threshold (default: 200)
+        n_genes_lower_bound (int): lower bound for n_genes cluster threshold (default: 0)
         percent_mito_upper_bound (float): upper bound for percent_mito cluster threshold (default: 10.0)
         return_df_qc (bool): whether to return QC dataframe (default: False)
         display_plots (bool): whether to display QC plots (default: True)

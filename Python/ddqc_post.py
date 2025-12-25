@@ -67,10 +67,10 @@ def three_way_boxplot(df, metric, cluster_col, ax, cluster_order, log_scale=Fals
     df_not_pass = df[df['passed_qc'] == False][[metric, cluster_col, 'passed_qc']].copy()  # Not-passed cells
     
     if log_scale:
-        df_all[f'{metric}_plot'] = np.log2(df_all[metric])
-        df_pass[f'{metric}_plot'] = np.log2(df_pass[metric])
-        df_not_pass[f'{metric}_plot'] = np.log2(df_not_pass[metric])
-        ylabel = f'log2({metric})'
+        df_all[f'{metric}_plot'] = np.log10(df_all[metric])
+        df_pass[f'{metric}_plot'] = np.log10(df_pass[metric])
+        df_not_pass[f'{metric}_plot'] = np.log10(df_not_pass[metric])
+        ylabel = f'log10({metric})'
     else:
         df_all[f'{metric}_plot'] = df_all[metric]
         df_pass[f'{metric}_plot'] = df_pass[metric]
@@ -180,7 +180,7 @@ def enhanced_ddqc_with_plots(adata, cluster_key="louvain", method="mad", thresho
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     
-    print(f"--- Box plot saved to: {output_path}")
+    print(f"    Box plot saved to: {output_path}")
     
     return adata_result
 
@@ -323,7 +323,7 @@ def create_doublet_plots(adata, target_srx, cluster_key="louvain", plot_output_d
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     
-    print(f"--- Doublet detection plots saved to: {output_path}")
+    print(f"    Doublet detection plots saved to: {output_path}")
 
 
 def create_enhanced_umap_plots(adata, target_srx, cluster_key="louvain", plot_output_dir="../plots/"):
@@ -357,7 +357,7 @@ def create_enhanced_umap_plots(adata, target_srx, cluster_key="louvain", plot_ou
         output_path_combined = os.path.join(plot_output_dir, f"{target_srx}_umap_combined.png")
         plt.savefig(output_path_combined, dpi=300, bbox_inches='tight')
         plt.close()
-        print(f"--- UMAP combined plot saved to: {output_path_combined}")
+        print(f"    UMAP combined plot saved to: {output_path_combined}")
         
     else:
         # Fallback: only cluster plot if no cell types available
@@ -369,5 +369,5 @@ def create_enhanced_umap_plots(adata, target_srx, cluster_key="louvain", plot_ou
         output_path = os.path.join(plot_output_dir, f"{target_srx}_umap_clusters.png")
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.close()
-        print(f"--- UMAP clusters plot saved to: {output_path}")
-        print("--- Cell type annotations not found, only clusters plotted")
+        print(f"    UMAP clusters plot saved to: {output_path}")
+        print("    Cell type annotations not found, only clusters plotted")
